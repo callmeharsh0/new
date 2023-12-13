@@ -1,0 +1,93 @@
+package oops;
+
+/**
+ * This class represents a generic employee with basic information and salary calculation
+ */
+class Employee {
+  String name; // Employee name
+  String add; // Employee address
+  String mail; // Employee email
+  float id; // Employee ID
+  float mobile; // Employee mobile number
+  float basic; // Employee basic salary
+
+  /**
+   * This method calculates and displays the gross salary based on allowances and deductions
+   */
+  void salary() {
+    float da, hra, pf, cf, gross;
+
+    // Calculate allowances
+    da = basic * 97 / 100; // Dearness Allowance
+    hra = basic * 10 / 100; // House Rent Allowance
+
+    // Calculate deductions
+    pf = basic * 12 / 100; // Provident Fund
+    cf = basic * 0.1f / 100; // Club Fund
+
+    // Calculate gross salary
+    gross = basic + da + hra - pf - cf;
+
+    System.out.println("Name: " + name);
+    System.out.println("Basic Salary: " + basic);
+    System.out.println("Gross Salary:" + gross);
+  }
+}
+
+/**
+ * This class represents a programmer who inherits from the Employee class
+ */
+class Programmer extends Employee {
+  Programmer(String name, int sal) {
+    this.name = name;
+    basic = sal;
+  }
+}
+
+/**
+ * This class represents a team lead who inherits from the Employee class
+ */
+class TeamLead extends Employee {
+  TeamLead(String name, int sal) {
+    this.name = name;
+    basic = sal;
+  }
+}
+
+/**
+ * This class represents an APM (Associate Project Manager) who inherits from the Employee class
+ */
+class APM extends Employee {
+  APM(String name, int sal) {
+    this.name = name;
+    basic = sal;
+  }
+}
+
+/**
+ * This class represents a project manager who inherits from the Employee class
+ */
+class ProjectManager extends Employee {
+  ProjectManager(String name, int sal) {
+    this.name = name;
+    basic = sal;
+  }
+}
+
+public class Inheritance {
+  public static void main(String[] args) {
+    Programmer p = new Programmer("Amar S mohite", 60000);
+    p.salary();
+
+    TeamLead t = new TeamLead("Sayali", 40000);
+    t.salary();
+
+    APM a = new APM("RAM", 70000);
+    a.salary();
+
+    ProjectManager pm = new ProjectManager("Abhay Joshi", 10000);
+    pm.salary();
+  }
+}
+
+

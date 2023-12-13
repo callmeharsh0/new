@@ -1,0 +1,74 @@
+Algorithm :
+1 . Start
+2 . Create two classes namely Book and Magazine . Define two methods of same name in both 
+classes i.e., salecopy and ordercopy .
+3. Create object of each class and call the methods salecopy and ordercopy .
+4 . Stop
+
+
+
+package oop;
+
+import java.util.Scanner;
+
+class Publication {
+  String title;
+  int copies, price;
+
+  void saleCopy() {
+    // This method is empty in the base class.
+    // Subclasses can override it with specific logic.
+  }
+}
+
+class Book extends Publication {
+  String author;
+
+  void saleCopy() {
+    price = 250;
+    System.out.println("Total sale of Books :" + copies * price);
+  }
+
+  void orderCopy() {
+    Scanner in = new Scanner(System.in);
+    System.out.println("Enter No of book copies :");
+    copies = in.nextInt();
+  }
+}
+
+class Magazine extends Publication {
+
+  void saleCopy() {
+    price = 250;
+    System.out.println("Total sale of Magazine :" + copies * price);
+  }
+
+  void orderQuantity() {
+    Scanner in = new Scanner(System.in);
+    System.out.println("Enter No of magazine copies :");
+    copies = in.nextInt();
+  }
+
+  void currentIssue() {
+    // This method is currently empty.
+    // Can be implemented to store and retrieve information about the current issue.
+  }
+
+  void receiveIssue() {
+    // This method is currently empty.
+    // Can be implemented to handle receiving new issues of the magazine.
+  }
+}
+
+public class Pubs {
+
+  public static void main(String[] args) {
+    Book b = new Book();
+    b.orderCopy();
+    b.saleCopy();
+
+    Magazine m = new Magazine();
+    m.orderQuantity();
+    m.saleCopy();
+  }
+}
